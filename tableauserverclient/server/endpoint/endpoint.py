@@ -22,7 +22,6 @@ Success_codes = [200, 201, 202, 204]
 class Endpoint(object):
     def __init__(self, parent_srv):
         self.parent_srv = parent_srv
-        
 
     @staticmethod
     def _make_common_headers(auth_token, content_type):

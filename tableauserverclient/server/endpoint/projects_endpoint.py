@@ -55,7 +55,7 @@ class Projects(Endpoint):
     @api(version="2.0")
     def create(self, project_item):
         url = self.baseurl
-        if (project_item._samples):
+        if project_item._samples:
             url = "{0}?publishSamples={1}".format(self.baseurl, project_item._samples)
         create_req = RequestFactory.Project.create_req(project_item)
         server_response = self.post_request(url, create_req)
