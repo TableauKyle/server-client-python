@@ -12,13 +12,14 @@ class ProjectItem(object):
         ManagedByOwner = "ManagedByOwner"
         LockedToProjectWithoutNested = "LockedToProjectWithoutNested"
 
-    def __init__(self, name, description=None, content_permissions=None, parent_id=None):
+    def __init__(self, name, description=None, content_permissions=None, parent_id=None, samples=None):
         self._content_permissions = None
         self._id = None
         self.description = description
         self.name = name
         self.content_permissions = content_permissions
         self.parent_id = parent_id
+        self._samples = samples
 
         self._permissions = None
         self._default_workbook_permissions = None
