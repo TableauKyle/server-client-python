@@ -31,9 +31,8 @@ class Endpoint(object):
             headers["x-tableau-auth"] = auth_token
         if content_type is not None:
             headers["content-type"] = content_type
-        if __VERSION__ is None:
-            __VERSION__ = ""
-        headers["User-Agent"] = "Tableau Server Client {0}".format(__VERSION__)
+        # we don't care what version the server is running, we want a client version number
+        headers["User-Agent"] = "Tableau Server Client"
         return headers
 
     @staticmethod
