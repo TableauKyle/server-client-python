@@ -22,6 +22,7 @@ Success_codes = [200, 201, 202, 204]
 class Endpoint(object):
     def __init__(self, parent_srv):
         self.parent_srv = parent_srv
+        
 
     @staticmethod
     def _make_common_headers(auth_token, content_type):
@@ -30,7 +31,9 @@ class Endpoint(object):
             headers["x-tableau-auth"] = auth_token
         if content_type is not None:
             headers["content-type"] = content_type
-
+        if __VERSION__ is None:
+            __VERSION__ = ""
+        headers["User-Agent"] = "Tableau Server Client {0}".format(__VERSION__)
         return headers
 
     @staticmethod
