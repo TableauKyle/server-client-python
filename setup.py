@@ -33,7 +33,7 @@ setup(
     test_suite='test',
     setup_requires=pytest_runner,
     install_requires=[
-        'requests>=2.11,<3.0',
+        'requests>=2.20,<3.0',
     ],
     tests_require=test_requirements,
     extras_require={
