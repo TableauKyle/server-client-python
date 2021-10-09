@@ -37,6 +37,7 @@ class RequestTests(unittest.TestCase):
                                                        content_type='multipart/mixed')
             self.assertEqual(resp.request.headers['x-tableau-auth'], 'j80k54ll2lfMZ0tv97mlPvvSCRyD0DOM')
             self.assertEqual(resp.request.headers['content-type'], 'multipart/mixed')
+            self.assertTrue(re.search('Tableau Server Client', resp.request.headers['user-agent']))
             self.assertEqual(resp.request.body, b'1337')
 
     # Test that 500 server errors are handled properly
