@@ -173,9 +173,8 @@ class RequestOptionTests(unittest.TestCase):
             resp = self.server.workbooks.get_request(url, request_object=opts)
             # expected query:
             # pagenumber=1&pagesize=100&sort=name:asc&filter=tags:in:[stocks,market]&queryparamexists=true
-            self.assertTrue(re.search('queryparamexists=true', resp.request.query))            
-            # why would this have suddenly changed for %2b to \[ ?
-            self.assertTrue(re.search('filter=tags:in:\[stocks,market\]', resp.request.query))
+            self.assertTrue(re.search('queryparamexists=true', resp.request.query))
+            self.assertTrue(re.search('filter=tags:in:%5bstocks,market%5d', resp.request.query))    
             self.assertTrue(re.search('sort=name:asc', resp.request.query))
 
     def test_vf(self):
